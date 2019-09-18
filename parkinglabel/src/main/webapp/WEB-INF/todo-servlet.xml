@@ -1,0 +1,69 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	    xmlns:context="http://www.springframework.org/schema/context"
+	    xmlns:mvc="http://www.springframework.org/schema/mvc"
+	    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	    xmlns:task="http://www.springframework.org/schema/task"
+	    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+	
+	    
+	    
+	    
+	    
+	    <context:component-scan base-package="com.parkinglabel" />
+	
+	    <mvc:annotation-driven />
+	    
+	    <task:annotation-driven />
+	  
+     
+    <bean id="viewResolver1" class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+        <property name="order" value="1"/>
+        <property name="basename" value="views"/>
+    </bean>
+     
+    <bean id="viewResolver2" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="order" value="2"/>
+        <property name="prefix" value="/WEB-INF/views/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+	    
+	    <mvc:resources mapping="/static/**" location="/static/"/>
+	    
+	    
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="nic.parkinglabelsystem@gmail.com" />
+		<property name="password" value="anunay123" />
+		<property name="javaMailProperties">
+	    <props>
+       	      <prop key="mail.smtp.auth">true</prop>
+       	      <prop key="mail.smtp.starttls.enable">true</prop>
+		</props>
+		</property>
+	</bean>  
+	    
+	<!-- declare beans -->  
+ 	<bean id="userDao" class="com.parkinglabel.dao.UserDaoImpl" />  
+ 	<bean id="userService" class="com.parkinglabel.service.UserServiceImpl" />  
+  	<bean id="labelDao" class="com.parkinglabel.dao.LabelDaoImpl" />  
+	<bean id="labelService" class="com.parkinglabel.service.LabelServiceImpl" />
+	<bean id="labelDocumentDao" class="com.parkinglabel.dao.LabelDocumentDaoImpl" />  
+	<bean id="labelDocumentService" class="com.parkinglabel.service.LabelDocumentServiceImpl" />
+  	<bean id="forgotDao" class="com.parkinglabel.dao.ForgotDaoImpl" />  
+ 	<bean id="forgotService" class="com.parkinglabel.service.ForgotServiceImpl" />
+  	
+  	
+ <!-- declare datasource bean -->  
+ <bean id="dataSource"  
+  class="org.springframework.jdbc.datasource.DriverManagerDataSource">  
+  <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+  <property name="url" value="jdbc:mysql://localhost:3306/parkinglabeldatabase" />  
+  <property name="username" value="root" />  
+  <property name="password" value="root" />  
+ </bean>  
+	    
+	</beans>
