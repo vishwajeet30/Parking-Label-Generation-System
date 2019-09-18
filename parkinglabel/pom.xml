@@ -50,10 +50,10 @@
 		</dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
 		<dependency>
-    		<groupId>org.springframework</groupId>
-    		<artifactId>spring-core</artifactId>
-    		<version>4.2.2.RELEASE</version>
-		</dependency>
+  <groupId>org.springframework</groupId>
+  <artifactId>spring-core</artifactId>
+  <version>[4.3.17,)</version>
+</dependency>
         		
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
 		<dependency>
@@ -161,10 +161,10 @@
 		
 		
 		<dependency>
-  			<groupId>commons-fileupload</groupId>
-  			<artifactId>commons-fileupload</artifactId>
-  			<version>1.3.1</version>
-		</dependency>
+  <groupId>commons-fileupload</groupId>
+  <artifactId>commons-fileupload</artifactId>
+  <version>[1.3.3,)</version>
+</dependency>
 		
 		<!-- https://mvnrepository.com/artifact/commons-io/commons-io FOR CAPTCHA IMAGE STREAMING -->
 		<dependency>
